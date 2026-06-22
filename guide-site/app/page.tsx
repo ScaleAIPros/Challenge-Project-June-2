@@ -167,17 +167,13 @@ export default function Home() {
           <p style={{ color: "#8888AA", lineHeight: 1.7 }}>A quick walkthrough of everything this guide covers — in under 3 minutes.</p>
         </div>
         <div id="explainer-video" style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "16px", overflow: "hidden" }}>
-          {/* Replace the div below with your HeyGen video embed or YouTube iframe once your video is live */}
-          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px" }}>
-            <div style={{ fontSize: "3rem" }}>🎬</div>
-            <div style={{ fontWeight: 700, fontSize: "1.1rem" }}>Explainer video coming soon</div>
-            <div style={{ color: "#8888AA", fontSize: "13px", textAlign: "center", maxWidth: "360px", lineHeight: 1.6 }}>
-              Make the video in HeyGen using the script below, then paste the embed code here.
-            </div>
-            <a href="https://scaleaipros.com/" target="_blank" rel="noopener noreferrer" style={{ marginTop: "8px", color: "#00D4FF", fontSize: "13px", textDecoration: "none", border: "1px solid #00D4FF", padding: "8px 18px", borderRadius: "6px" }}>
-              Visit ScaleAIPros.com →
-            </a>
-          </div>
+          <iframe
+            src="https://app.heygen.com/embeds/64ce5512259e4098a93e4aa80ce7f27c"
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "16px" }}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            title="ScaleAIPros — How to Create AI Videos Without Being on Camera"
+          />
         </div>
       </section>
 
