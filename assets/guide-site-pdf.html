@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Create AI Videos Without Being on Camera — ScaleAIPros</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0A0A0F;
+  --surface: #12121A;
+  --cyan: #00D4FF;
+  --purple: #7C3AED;
+  --text: #F0F0F0;
+  --muted: #8888AA;
+  --border: #1E1E2E;
+}
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+a { color: var(--cyan); text-decoration: none; }
+
+/* ── NAV ── */
+nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-handle {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-link {
+  color: var(--cyan);
+  font-size: 13px;
+  border: 1px solid var(--cyan);
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* ── TOP GRADIENT BAR ── */
+.top-bar {
+  height: 5px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+}
+
+/* ── HERO ── */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 32px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.hero h1 span { color: var(--cyan); }
+.hero-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--cyan);
+  color: var(--bg);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.btn-secondary {
+  display: inline-block;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.stat-num { font-size: 1.6rem; font-weight: 800; color: var(--cyan); }
+.stat-label { font-size: 12px; color: var(--muted); }
+
+/* Video placeholder for PDF */
+.video-placeholder {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,212,255,0.12);
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.video-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.play-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--cyan);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.play-icon svg { fill: var(--bg); margin-left: 4px; }
+.video-url {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+  font-size: 12px;
+}
+.video-label { color: var(--muted); font-size: 12px; }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0 32px;
+}
+
+/* ── KEY POINTS ── */
+.section-key-points {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.section-header p { color: var(--muted); }
+
+.key-point {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  page-break-inside: avoid;
+}
+.key-point-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+}
+.kp-num {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+  font-size: 12px;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.kp-icon { font-size: 1.4rem; flex-shrink: 0; }
+.kp-text { flex: 1; }
+.kp-title { font-weight: 700; font-size: 1rem; margin-bottom: 3px; }
+.kp-subtitle { color: var(--muted); font-size: 13px; }
+.kp-label {
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--border);
+  color: var(--cyan);
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 3px;
+}
+
+.key-point-body {
+  padding: 0 24px 24px 72px;
+  border-top: 1px solid var(--border);
+}
+.kp-body-text {
+  color: #CCCCDD;
+  line-height: 1.75;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+.kp-tip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--purple);
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── TAKEAWAYS ── */
+.section-takeaways {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.takeaways-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+.takeaways-inner h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.takeaways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.takeaway-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.takeaway-num {
+  color: var(--cyan);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.takeaway-title { font-weight: 700; margin-bottom: 8px; }
+.takeaway-body { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+/* ── CTA ── */
+.section-cta {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 32px;
+  text-align: center;
+}
+.section-cta h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+.section-cta p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.btn-cta {
+  display: inline-block;
+  background: var(--cyan);
+  color: var(--bg);
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 0 30px rgba(0,212,255,0.4);
+}
+
+/* ── PROOF GALLERY ── */
+.section-gallery {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.gallery-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+.gallery-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.gallery-inner h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+}
+.gallery-sub { color: var(--muted); text-align: center; margin-top: 8px; margin-bottom: 40px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+.gallery-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.gallery-label { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+.gallery-desc { color: var(--muted); font-size: 11px; line-height: 1.5; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+.footer-handle {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyan);
+}
+
+/* ── PRINT ── */
+@media print {
+  body { font-size: 13px; }
+  .hero { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+  .takeaways-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 2rem; }
+  .section-cta { padding: 48px 32px; }
+  .section-cta h2 { font-size: 1.6rem; }
+  nav { position: static; }
+  /* Force page breaks between major sections */
+  .section-key-points { page-break-before: always; }
+  .section-takeaways { page-break-before: always; }
+  .section-cta { page-break-before: always; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-handle">@ScaleAIPros</span>
+  <a href="https://scaleaipros.com/" class="nav-link">Visit ScaleAIPros →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Free Interactive Guide</div>
+    <h1>How to Create AI Videos<br/><span>Without Being on Camera</span></h1>
+    <p class="hero-sub">A plain-English walkthrough of HeyGen 2026 — the tool that lets any business owner create professional videos with zero filming, zero editing, and zero camera anxiety.</p>
+    <div>
+      <a href="#key-points" class="btn-primary">Start the Guide ↓</a>
+      <a href="https://scaleaipros.com/" class="btn-secondary">Free Cheat Sheet</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">7</div><div class="stat-label">Key Points</div></div>
+      <div><div class="stat-num">175+</div><div class="stat-label">Languages</div></div>
+      <div><div class="stat-num">0</div><div class="stat-label">Cameras Needed</div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="video-eyebrow">Watch First — 3 min</div>
+    <div class="video-placeholder">
+      <div class="play-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <div class="video-label">ScaleAIPros Explainer Video</div>
+      <div class="video-url">scaleaipros.com</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- KEY POINTS -->
+<section class="section-key-points" id="key-points">
+  <div class="section-header">
+    <h2>The 7 Things You Need to Know</h2>
+    <p>Every key point explained in plain English</p>
+  </div>
+
+  <!-- Point 01 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">01</span>
+      <span class="kp-icon">🎬</span>
+      <div class="kp-text">
+        <div class="kp-title">What HeyGen Actually Is</div>
+        <div class="kp-subtitle">Turn a text prompt into a finished video — no camera needed</div>
+      </div>
+      <span class="kp-label">The Tool</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">HeyGen lets you type your video idea and get back a polished, professional video with a lifelike AI presenter reading your script. No filming. No editing. No studio. Just describe what you want, and HeyGen builds the whole thing: script, visuals, voice, captions, and timing.</p>
+      <div class="kp-tip">💡 Business owners are using HeyGen to create marketing explainers, onboarding videos, and social content in minutes — not days.</div>
+    </div>
+  </div>
+
+  <!-- Point 02 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">02</span>
+      <span class="kp-icon">🤖</span>
+      <div class="kp-text">
+        <div class="kp-title">AI Agent: Describe It, Get a Video</div>
+        <div class="kp-subtitle">One prompt → full video, automatically</div>
+      </div>
+      <span class="kp-label">The Shortcut</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">From HeyGen's home screen, describe what you want. The AI Agent builds your complete video from a single description — choosing the structure, writing the script, picking visuals, and syncing the voice. The secret is being specific: mention the tone, audience, and goal in your prompt.</p>
+      <div class="kp-tip">💡 Try: "Create a 60-second explainer for my bookkeeping service. Show small business owners feeling relieved about their finances. Tone: warm and professional."</div>
+    </div>
+  </div>
+
+  <!-- Point 03 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">03</span>
+      <span class="kp-icon">✏️</span>
+      <div class="kp-text">
+        <div class="kp-title">The Editor: You Stay in Control</div>
+        <div class="kp-subtitle">AI builds the draft — you make it perfect</div>
+      </div>
+      <span class="kp-label">The Control Room</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">After the AI builds your video, jump into AI Studio to refine every detail. Click any scene to rewrite the script. Change caption style to match your brand. Generate a custom background by describing it in plain English. Set the avatar's energy level — calm, welcoming, or excited.</p>
+      <div class="kp-tip">💡 Avoid the 'expressive motion' toggle unless you want your avatar to start doing... interpretive dance.</div>
+    </div>
+  </div>
+
+  <!-- Point 04 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">04</span>
+      <span class="kp-icon">🧬</span>
+      <div class="kp-text">
+        <div class="kp-title">Clone Yourself — Once and Done</div>
+        <div class="kp-subtitle">15 seconds of recording → your AI twin that works forever</div>
+      </div>
+      <span class="kp-label">The Clone</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">HeyGen can create a digital twin of you from a short webcam or phone recording. Once created, your AI clone reads any script in your voice and likeness, appears in any video you generate, and can change outfits and environments without you ever recording again.</p>
+      <div class="kp-tip">💡 Record once. Let your clone produce content while you run your business. That's the real leverage.</div>
+    </div>
+  </div>
+
+  <!-- Point 05 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">05</span>
+      <span class="kp-icon">🎨</span>
+      <div class="kp-text">
+        <div class="kp-title">One Video, Infinite Looks</div>
+        <div class="kp-subtitle">Repurpose content across platforms without re-recording</div>
+      </div>
+      <span class="kp-label">The Multiplier</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">After creating a video with your clone, change the entire visual style with an AI prompt — different background, different outfit, different vibe — without touching the script or re-recording. Same content, totally new feel. Perfect for repurposing one video across LinkedIn, Instagram, and YouTube.</p>
+      <div class="kp-tip">💡 Prompt example: "Dark cinematic stage, soft spotlight, subtle rim lighting, dark fitted jacket." Instant makeover.</div>
+    </div>
+  </div>
+
+  <!-- Point 06 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">06</span>
+      <span class="kp-icon">🌍</span>
+      <div class="kp-text">
+        <div class="kp-title">Speak Every Language — Automatically</div>
+        <div class="kp-subtitle">175+ languages, no re-recording, no translator</div>
+      </div>
+      <span class="kp-label">The Translator</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">Upload your English video, choose a target language (French, Spanish, Japanese — 175+ options), and HeyGen re-dubs it with your avatar speaking naturally in that language. One video, global reach. No translator needed. No re-recording.</p>
+      <div class="kp-tip">💡 You might not speak French. But your avatar can. That's the kind of scale that used to cost tens of thousands of dollars.</div>
+    </div>
+  </div>
+
+  <!-- Point 07 -->
+  <div class="key-point">
+    <div class="key-point-header">
+      <span class="kp-num">07</span>
+      <span class="kp-icon">✨</span>
+      <div class="kp-text">
+        <div class="kp-title">Go Faceless — Animated Characters</div>
+        <div class="kp-subtitle">Build a content channel without ever being on camera</div>
+      </div>
+      <span class="kp-label">The Faceless Path</span>
+    </div>
+    <div class="key-point-body">
+      <p class="kp-body-text">Don't want to be on camera? Create a fully animated AI character with a custom personality, voice, and look. Give it a name, choose its style (Pixar, realistic, cartoon), describe its world, and start generating content. You can build an educational mascot, a faceless content channel, or a story-driven series.</p>
+      <div class="kp-tip">💡 One animated character with unlimited looks = one channel that can scale to multiple audiences and niches without you ever pressing record.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TAKEAWAYS -->
+<section class="section-takeaways">
+  <div class="takeaways-inner">
+    <h2>The 3 Big Takeaways</h2>
+    <div class="takeaways-grid">
+      <div class="takeaway-card">
+        <div class="takeaway-num">1</div>
+        <div class="takeaway-title">Video is no longer optional</div>
+        <div class="takeaway-body">But it doesn't have to cost you time or money. The tools are here.</div>
+      </div>
+      <div class="takeaway-card">
+        <div class="takeaway-num">2</div>
+        <div class="takeaway-title">The biggest barrier is gone</div>
+        <div class="takeaway-body">You don't need to be on camera. You don't need to know how to edit.</div>
+      </div>
+      <div class="takeaway-card">
+        <div class="takeaway-num">3</div>
+        <div class="takeaway-title">Start now, not later</div>
+        <div class="takeaway-body">The businesses winning are the ones who start while others overthink it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta">
+  <h2>Ready to Stop Overthinking AI<br/>and Start Using It?</h2>
+  <p>Download the free HeyGen Quick-Start Cheat Sheet — one page, plain English, every step you need to make your first AI video today.</p>
+  <a href="https://scaleaipros.com/" class="btn-cta">Get the Free Cheat Sheet → ScaleAIPros.com</a>
+</section>
+
+<!-- PROOF GALLERY -->
+<section class="section-gallery">
+  <div class="gallery-inner">
+    <div class="gallery-eyebrow">Built with this process</div>
+    <h2>The Full System, Live</h2>
+    <p class="gallery-sub">Every asset and tool built from the same source content</p>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-icon">📖</div>
+        <div class="gallery-label">Interactive Guide</div>
+        <div class="gallery-desc">This page — 7 key points, dark brand, mobile-ready</div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-icon">📧</div>
+        <div class="gallery-label">Lead Magnet Page</div>
+        <div class="gallery-desc">Name + email capture with auto cheat sheet delivery</div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-icon">🎯</div>
+        <div class="gallery-label">Free AI Tool</div>
+        <div class="gallery-desc">5-question quiz → personalized HeyGen recommendations</div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-icon">🚀</div>
+        <div class="gallery-label">5-Day Launch Plan</div>
+        <div class="gallery-desc">Copy-paste captions for every platform, every day</div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-icon">📄</div>
+        <div class="gallery-label">Cheat Sheet PDF</div>
+        <div class="gallery-desc">One-page branded download, printable</div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-icon">📱</div>
+        <div class="gallery-label">Instagram Carousel</div>
+        <div class="gallery-desc">6 branded slides, 1080×1350, ready to export</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-handle">@ScaleAIPros</span>
+  · <a href="https://scaleaipros.com/" style="color:#8888AA;">scaleaipros.com</a>
+  · AI doesn't have to be complicated.
+</footer>
+
+</body>
+</html>
