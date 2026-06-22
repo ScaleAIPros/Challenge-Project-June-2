@@ -52,7 +52,7 @@ export default function LeadPage() {
           Make Your First AI Video<br /><span style={{ color: "#00D4FF" }}>In Under 10 Minutes</span>
         </h1>
         <p style={{ color: "#8888AA", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "40px" }}>
-          Get the free one-page HeyGen Cheat Sheet — plain English, every step, no camera required. Used by hundreds of non-technical business owners.
+          Get the free one-page HeyGen Cheat Sheet — no camera required.
         </p>
 
         {status === "success" ? (
@@ -86,15 +86,6 @@ export default function LeadPage() {
               <span style={{ color: "#CCCCDD", fontSize: "14px", lineHeight: 1.6 }}>{b}</span>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section style={{ background: "#12121A", borderTop: "1px solid #1E1E2E", borderBottom: "1px solid #1E1E2E", padding: "48px 24px" }}>
-        <div style={{ maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontSize: "1.1rem", fontStyle: "italic", color: "#CCCCDD", lineHeight: 1.7, marginBottom: "16px" }}>
-            "I always thought AI video tools were for tech people. This cheat sheet made it click in one read. I had my first HeyGen video live the same afternoon."
-          </p>
-          <p style={{ color: "#8888AA", fontSize: "14px" }}>— Business owner, ScaleAIPros community</p>
         </div>
       </section>
 
