@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const TO_EMAIL = "info@ScaleAIPros.com";
 const CHEAT_SHEET_URL = process.env.NEXT_PUBLIC_GUIDE_URL
-  ? `${process.env.NEXT_PUBLIC_GUIDE_URL}/cheat-sheet`
-  : "https://scaleaipros.com/";
+  ? `${process.env.NEXT_PUBLIC_GUIDE_URL}/cheat-sheet.html`
+  : "https://scaleaipros.com/cheat-sheet.html";
 
 async function sendEmail(to: string, subject: string, html: string) {
   if (!RESEND_API_KEY) {
