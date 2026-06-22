@@ -227,33 +227,6 @@ export default function Home() {
         </a>
       </section>
 
-      {/* Proof Gallery */}
-      <section style={{ background: "#12121A", borderTop: "1px solid #1E1E2E" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
-          <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "12px" }}>Built with this process</div>
-            <h2 style={{ fontSize: "1.6rem", fontWeight: 800 }}>The Full System, Live</h2>
-            <p style={{ color: "#8888AA", marginTop: "8px" }}>Every asset and tool built from the same source content</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
-            {[
-              { label: "Interactive Guide", desc: "This page — 7 key points, dark brand, mobile-ready", icon: "📖", url: "#" },
-              { label: "Lead Magnet Page", desc: "Name + email capture with auto cheat sheet delivery", icon: "📧", url: "#" },
-              { label: "Free AI Tool", desc: "5-question quiz → personalized HeyGen recommendations", icon: "🎯", url: "#" },
-              { label: "5-Day Launch Plan", desc: "Copy-paste captions for every platform, every day", icon: "🚀", url: "#" },
-              { label: "Cheat Sheet PDF", desc: "One-page branded download, printable", icon: "📄", url: "#" },
-              { label: "Instagram Carousel", desc: "6 branded slides, 1080×1350, ready to export", icon: "📱", url: "#" },
-            ].map(({ label, desc, icon, url }) => (
-              <a key={label} href={url} style={{ background: "#0A0A0F", border: "1px solid #1E1E2E", borderRadius: "10px", padding: "20px", textDecoration: "none", color: "#F0F0F0", display: "block", transition: "border-color 0.2s" }}>
-                <div style={{ fontSize: "1.5rem", marginBottom: "8px" }}>{icon}</div>
-                <div style={{ fontWeight: 700, fontSize: "13px", marginBottom: "4px" }}>{label}</div>
-                <div style={{ color: "#8888AA", fontSize: "11px", lineHeight: 1.5 }}>{desc}</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer style={{ borderTop: "1px solid #1E1E2E", padding: "24px", textAlign: "center", color: "#8888AA", fontSize: "13px" }}>
         <span style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF" }}>@ScaleAIPros</span>
