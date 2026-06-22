@@ -159,6 +159,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Explainer Video */}
+      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
+        <div style={{ textAlign: "center", marginBottom: "32px" }}>
+          <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "12px" }}>Watch First</div>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, marginBottom: "12px" }}>See It in Action</h2>
+          <p style={{ color: "#8888AA", lineHeight: 1.7 }}>A quick walkthrough of everything this guide covers — in under 3 minutes.</p>
+        </div>
+        <div id="explainer-video" style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "16px", overflow: "hidden" }}>
+          {/* Replace the div below with your HeyGen video embed or YouTube iframe once your video is live */}
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px" }}>
+            <div style={{ fontSize: "3rem" }}>🎬</div>
+            <div style={{ fontWeight: 700, fontSize: "1.1rem" }}>Explainer video coming soon</div>
+            <div style={{ color: "#8888AA", fontSize: "13px", textAlign: "center", maxWidth: "360px", lineHeight: 1.6 }}>
+              Make the video in HeyGen using the script below, then paste the embed code here.
+            </div>
+            <a href="https://scaleaipros.com/" target="_blank" rel="noopener noreferrer" style={{ marginTop: "8px", color: "#00D4FF", fontSize: "13px", textDecoration: "none", border: "1px solid #00D4FF", padding: "8px 18px", borderRadius: "6px" }}>
+              Visit ScaleAIPros.com →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 3 Takeaways */}
       <section style={{ background: "#12121A", borderTop: "1px solid #1E1E2E", borderBottom: "1px solid #1E1E2E" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
