@@ -1,0 +1,246 @@
+"use client";
+import { useState } from "react";
+
+const keyPoints = [
+  {
+    number: "01",
+    icon: "🎬",
+    title: "What HeyGen Actually Is",
+    subtitle: "Turn a text prompt into a finished video — no camera needed",
+    body: "HeyGen lets you type your video idea and get back a polished, professional video with a lifelike AI presenter reading your script. No filming. No editing. No studio. Just describe what you want, and HeyGen builds the whole thing: script, visuals, voice, captions, and timing.",
+    tip: "Business owners are using HeyGen to create marketing explainers, onboarding videos, and social content in minutes — not days.",
+    label: "The Tool",
+  },
+  {
+    number: "02",
+    icon: "🤖",
+    title: "AI Agent: Describe It, Get a Video",
+    subtitle: "One prompt → full video, automatically",
+    body: "From HeyGen's home screen, describe what you want. The AI Agent builds your complete video from a single description — choosing the structure, writing the script, picking visuals, and syncing the voice. The secret is being specific: mention the tone, audience, and goal in your prompt.",
+    tip: 'Try: "Create a 60-second explainer for my bookkeeping service. Show small business owners feeling relieved about their finances. Tone: warm and professional."',
+    label: "The Shortcut",
+  },
+  {
+    number: "03",
+    icon: "✏️",
+    title: "The Editor: You Stay in Control",
+    subtitle: "AI builds the draft — you make it perfect",
+    body: "After the AI builds your video, jump into AI Studio to refine every detail. Click any scene to rewrite the script. Change caption style to match your brand. Generate a custom background by describing it in plain English. Set the avatar's energy level — calm, welcoming, or excited.",
+    tip: "Avoid the 'expressive motion' toggle unless you want your avatar to start doing... interpretive dance.",
+    label: "The Control Room",
+  },
+  {
+    number: "04",
+    icon: "🧬",
+    title: "Clone Yourself — Once and Done",
+    subtitle: "15 seconds of recording → your AI twin that works forever",
+    body: "HeyGen can create a digital twin of you from a short webcam or phone recording. Once created, your AI clone reads any script in your voice and likeness, appears in any video you generate, and can change outfits and environments without you ever recording again.",
+    tip: "Record once. Let your clone produce content while you run your business. That's the real leverage.",
+    label: "The Clone",
+  },
+  {
+    number: "05",
+    icon: "🎨",
+    title: "One Video, Infinite Looks",
+    subtitle: "Repurpose content across platforms without re-recording",
+    body: "After creating a video with your clone, change the entire visual style with an AI prompt — different background, different outfit, different vibe — without touching the script or re-recording. Same content, totally new feel. Perfect for repurposing one video across LinkedIn, Instagram, and YouTube.",
+    tip: 'Prompt example: "Dark cinematic stage, soft spotlight, subtle rim lighting, dark fitted jacket." Instant makeover.',
+    label: "The Multiplier",
+  },
+  {
+    number: "06",
+    icon: "🌍",
+    title: "Speak Every Language — Automatically",
+    subtitle: "175+ languages, no re-recording, no translator",
+    body: "Upload your English video, choose a target language (French, Spanish, Japanese — 175+ options), and HeyGen re-dubs it with your avatar speaking naturally in that language. One video, global reach. No translator needed. No re-recording.",
+    tip: "You might not speak French. But your avatar can. That's the kind of scale that used to cost tens of thousands of dollars.",
+    label: "The Translator",
+  },
+  {
+    number: "07",
+    icon: "✨",
+    title: "Go Faceless — Animated Characters",
+    subtitle: "Build a content channel without ever being on camera",
+    body: "Don't want to be on camera? Create a fully animated AI character with a custom personality, voice, and look. Give it a name, choose its style (Pixar, realistic, cartoon), describe its world, and start generating content. You can build an educational mascot, a faceless content channel, or a story-driven series.",
+    tip: "One animated character with unlimited looks = one channel that can scale to multiple audiences and niches without you ever pressing record.",
+    label: "The Faceless Path",
+  },
+];
+
+export default function Home() {
+  const [openPoint, setOpenPoint] = useState<number | null>(null);
+
+  return (
+    <div style={{ background: "#0A0A0F", minHeight: "100vh", color: "#F0F0F0" }}>
+      {/* Nav */}
+      <nav style={{ borderBottom: "1px solid #1E1E2E", padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", position: "sticky", top: 0, background: "#0A0A0Fcc", backdropFilter: "blur(12px)", zIndex: 100 }}>
+        <span style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "14px", fontWeight: 600 }}>@ScaleAIPros</span>
+        <a href="https://scaleaipros.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#00D4FF", fontSize: "13px", textDecoration: "none", border: "1px solid #00D4FF", padding: "6px 14px", borderRadius: "6px" }}>
+          Visit ScaleAIPros →
+        </a>
+      </nav>
+
+      {/* Hero */}
+      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "80px 24px 60px", textAlign: "center" }}>
+        <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "12px", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>
+          Free Interactive Guide
+        </div>
+        <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, lineHeight: 1.15, margin: "0 0 24px" }}>
+          How to Create AI Videos<br />
+          <span style={{ color: "#00D4FF" }}>Without Being on Camera</span>
+        </h1>
+        <p style={{ fontSize: "1.15rem", color: "#8888AA", maxWidth: "560px", margin: "0 auto 40px", lineHeight: 1.7 }}>
+          A plain-English walkthrough of HeyGen 2026 — the tool that lets any business owner create professional videos with zero filming, zero editing, and zero camera anxiety.
+        </p>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+          <a href="#key-points" style={{ background: "#00D4FF", color: "#0A0A0F", padding: "14px 28px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>
+            Start the Guide ↓
+          </a>
+          <a href="/cheat-sheet" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "14px 28px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "15px" }}>
+            Download Free Cheat Sheet
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div style={{ display: "flex", gap: "40px", justifyContent: "center", marginTop: "60px", flexWrap: "wrap" }}>
+          {[["7", "Key Points"], ["175+", "Languages"], ["0", "Cameras Needed"]].map(([num, label]) => (
+            <div key={label} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "2rem", fontWeight: 800, color: "#00D4FF" }}>{num}</div>
+              <div style={{ fontSize: "13px", color: "#8888AA" }}>{label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #1E1E2E, transparent)", margin: "0 24px" }} />
+
+      {/* Key Points */}
+      <section id="key-points" style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, marginBottom: "12px" }}>The 7 Things You Need to Know</h2>
+          <p style={{ color: "#8888AA" }}>Click any point to expand the full explanation</p>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          {keyPoints.map((point, i) => (
+            <div
+              key={i}
+              onClick={() => setOpenPoint(openPoint === i ? null : i)}
+              style={{
+                background: "#12121A",
+                border: `1px solid ${openPoint === i ? "#00D4FF" : "#1E1E2E"}`,
+                borderRadius: "12px",
+                overflow: "hidden",
+                cursor: "pointer",
+                transition: "border-color 0.2s",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", padding: "20px 24px" }}>
+                <span style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "12px", minWidth: "28px" }}>{point.number}</span>
+                <span style={{ fontSize: "1.4rem" }}>{point.icon}</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "2px" }}>{point.title}</div>
+                  <div style={{ color: "#8888AA", fontSize: "13px" }}>{point.subtitle}</div>
+                </div>
+                <span style={{ fontSize: "10px", fontFamily: "JetBrains Mono, monospace", background: "#1E1E2E", color: "#00D4FF", padding: "3px 8px", borderRadius: "4px", whiteSpace: "nowrap" }}>{point.label}</span>
+                <span style={{ color: "#8888AA", fontSize: "20px", marginLeft: "8px" }}>{openPoint === i ? "−" : "+"}</span>
+              </div>
+              {openPoint === i && (
+                <div style={{ padding: "0 24px 24px 72px", borderTop: "1px solid #1E1E2E" }}>
+                  <p style={{ color: "#CCCCDD", lineHeight: 1.75, marginTop: "20px", marginBottom: "16px" }}>{point.body}</p>
+                  <div style={{ background: "#0A0A0F", border: "1px solid #1E1E2E", borderLeft: "3px solid #7C3AED", padding: "12px 16px", borderRadius: "6px", fontSize: "13px", color: "#8888AA", fontStyle: "italic" }}>
+                    💡 {point.tip}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3 Takeaways */}
+      <section style={{ background: "#12121A", borderTop: "1px solid #1E1E2E", borderBottom: "1px solid #1E1E2E" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, textAlign: "center", marginBottom: "40px" }}>The 3 Big Takeaways</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
+            {[
+              { n: "1", t: "Video is no longer optional", b: "But it doesn't have to cost you time or money. The tools are here." },
+              { n: "2", t: "The biggest barrier is gone", b: "You don't need to be on camera. You don't need to know how to edit." },
+              { n: "3", t: "Start now, not later", b: "The businesses winning are the ones who start while others overthink it." },
+            ].map(({ n, t, b }) => (
+              <div key={n} style={{ background: "#0A0A0F", border: "1px solid #1E1E2E", borderRadius: "12px", padding: "24px" }}>
+                <div style={{ color: "#00D4FF", fontFamily: "JetBrains Mono, monospace", fontSize: "28px", fontWeight: 800, marginBottom: "12px" }}>{n}</div>
+                <div style={{ fontWeight: 700, marginBottom: "8px" }}>{t}</div>
+                <div style={{ color: "#8888AA", fontSize: "14px", lineHeight: 1.6 }}>{b}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ maxWidth: "680px", margin: "0 auto", padding: "80px 24px", textAlign: "center" }}>
+        <h2 style={{ fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 800, marginBottom: "16px" }}>
+          Ready to Stop Overthinking AI<br />and Start Using It?
+        </h2>
+        <p style={{ color: "#8888AA", fontSize: "1.05rem", marginBottom: "32px", lineHeight: 1.7 }}>
+          Download the free HeyGen Quick-Start Cheat Sheet — one page, plain English, every step you need to make your first AI video today.
+        </p>
+        <a
+          href="https://scaleaipros.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            background: "#00D4FF",
+            color: "#0A0A0F",
+            padding: "16px 36px",
+            borderRadius: "8px",
+            fontWeight: 800,
+            fontSize: "1rem",
+            textDecoration: "none",
+            boxShadow: "0 0 30px rgba(0,212,255,0.4)",
+          }}
+        >
+          Get the Free Cheat Sheet → ScaleAIPros.com
+        </a>
+      </section>
+
+      {/* Proof Gallery */}
+      <section style={{ background: "#12121A", borderTop: "1px solid #1E1E2E" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
+            <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "12px" }}>Built with this process</div>
+            <h2 style={{ fontSize: "1.6rem", fontWeight: 800 }}>The Full System, Live</h2>
+            <p style={{ color: "#8888AA", marginTop: "8px" }}>Every asset and tool built from the same source content</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
+            {[
+              { label: "Interactive Guide", desc: "This page — 7 key points, dark brand, mobile-ready", icon: "📖", url: "#" },
+              { label: "Lead Magnet Page", desc: "Name + email capture with auto cheat sheet delivery", icon: "📧", url: "#" },
+              { label: "Free AI Tool", desc: "5-question quiz → personalized HeyGen recommendations", icon: "🎯", url: "#" },
+              { label: "5-Day Launch Plan", desc: "Copy-paste captions for every platform, every day", icon: "🚀", url: "#" },
+              { label: "Cheat Sheet PDF", desc: "One-page branded download, printable", icon: "📄", url: "#" },
+              { label: "Instagram Carousel", desc: "6 branded slides, 1080×1350, ready to export", icon: "📱", url: "#" },
+            ].map(({ label, desc, icon, url }) => (
+              <a key={label} href={url} style={{ background: "#0A0A0F", border: "1px solid #1E1E2E", borderRadius: "10px", padding: "20px", textDecoration: "none", color: "#F0F0F0", display: "block", transition: "border-color 0.2s" }}>
+                <div style={{ fontSize: "1.5rem", marginBottom: "8px" }}>{icon}</div>
+                <div style={{ fontWeight: 700, fontSize: "13px", marginBottom: "4px" }}>{label}</div>
+                <div style={{ color: "#8888AA", fontSize: "11px", lineHeight: 1.5 }}>{desc}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ borderTop: "1px solid #1E1E2E", padding: "24px", textAlign: "center", color: "#8888AA", fontSize: "13px" }}>
+        <span style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF" }}>@ScaleAIPros</span>
+        {" · "}
+        <a href="https://scaleaipros.com/" style={{ color: "#8888AA", textDecoration: "none" }}>scaleaipros.com</a>
+        {" · AI doesn't have to be complicated."}
+      </footer>
+    </div>
+  );
+}

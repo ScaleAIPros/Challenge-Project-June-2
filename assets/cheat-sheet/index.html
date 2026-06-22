@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HeyGen Quick-Start Cheat Sheet — ScaleAIPros</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0F;
+    color: #F0F0F0;
+    font-family: 'Inter', sans-serif;
+    width: 1080px;
+    min-height: 1527px; /* A4 proportions at 96dpi */
+    padding: 60px;
+    position: relative;
+  }
+  .page {
+    width: 100%;
+    min-height: 1407px;
+    background: #12121A;
+    border: 1px solid #1E1E2E;
+    border-radius: 20px;
+    padding: 56px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .page::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #1E1E2E;
+  }
+  .brand {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00D4FF;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .tag {
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.3);
+    color: #00D4FF;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  h1 span { color: #00D4FF; }
+  .subtitle {
+    color: #8888AA;
+    font-size: 14px;
+    margin-bottom: 36px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .card {
+    background: #0A0A0F;
+    border: 1px solid #1E1E2E;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .card-num {
+    font-family: 'JetBrains Mono', monospace;
+    color: #00D4FF;
+    font-size: 11px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .card-body {
+    font-size: 11.5px;
+    color: #8888AA;
+    line-height: 1.6;
+  }
+  .card-tip {
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: rgba(124,58,237,0.08);
+    border-left: 2px solid #7C3AED;
+    font-size: 10.5px;
+    color: #7C3AED;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+  }
+  .full-card {
+    grid-column: 1 / -1;
+  }
+  .cta-bar {
+    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(124,58,237,0.08));
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .cta-bar h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .cta-bar p { color: #8888AA; font-size: 12px; margin-bottom: 12px; }
+  .cta-url {
+    display: inline-block;
+    background: #00D4FF;
+    color: #0A0A0F;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #1E1E2E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #555577;
+  }
+  footer .handle { color: #00D4FF; font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <div class="brand">@ScaleAIPros</div>
+      <div style="color:#8888AA;font-size:11px;margin-top:2px;">scaleaipros.com</div>
+    </div>
+    <div class="tag">Free Cheat Sheet</div>
+  </header>
+
+  <h1>HeyGen Quick-Start<br /><span>Cheat Sheet</span></h1>
+  <p class="subtitle">Everything you need to make your first AI video — one page, plain English, no tech skills required.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">🎬 What HeyGen Does</div>
+      <div class="card-body">Type a video idea → get back a finished video with an AI presenter, script, captions, music, and timing. No camera. No editing. No studio.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">🤖 AI Agent — Your Shortcut</div>
+      <div class="card-body">From the home screen, describe your video. The AI builds everything from one prompt. Be specific: mention tone, audience, and goal for better results.</div>
+      <div class="card-tip">Example: "60-second explainer for my bookkeeping service, warm and professional tone, targeting small business owners"</div>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">✏️ The Editor — Stay in Control</div>
+      <div class="card-body">Click any scene to rewrite it. Change captions style, generate AI backgrounds by description, set avatar energy level (calm / welcoming / excited).</div>
+      <div class="card-tip">⚠️ Avoid "expressive motion" — it makes avatars move erratically.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">🧬 Clone Yourself (15 sec)</div>
+      <div class="card-body">Avatar tab → New Avatar → Clone a real person. Record 15 sec via webcam or phone. Turn on: 4K, noise removal. Your AI twin is then ready for unlimited videos.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">05</div>
+      <div class="card-title">🎨 Change Looks Instantly</div>
+      <div class="card-body">Edit in AI Studio → Avatar → New Look → Design with AI. Describe outfit + environment. Applies to every scene. Same script, brand new aesthetic.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">06</div>
+      <div class="card-title">🌍 175+ Languages, Zero Re-recording</div>
+      <div class="card-body">Home → Translate → Browse local files → Choose language → Translate. Your avatar speaks the new language naturally. No translator needed.</div>
+    </div>
+    <div class="card full-card">
+      <div class="card-num">07</div>
+      <div class="card-title">✨ Go Faceless — Animated Characters</div>
+      <div class="card-body">Avatar tab → New Avatar → Create virtual character → Design with AI. Name it, set style (Pixar / realistic), describe its world. Add a voice from the library. Use it to build a faceless channel, educational mascot, or story-driven series — no camera ever needed.</div>
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>Ready to make your first AI video?</h3>
+    <p>Get the interactive guide with demos, deep dives, and the free AI Video Use Case Finder tool.</p>
+    <a href="https://scaleaipros.com/" class="cta-url">scaleaipros.com</a>
+  </div>
+
+  <footer>
+    <span><span class="handle">@ScaleAIPros</span> — AI does not have to be complicated.</span>
+    <span>© 2026 ScaleAIPros · Free to share</span>
+  </footer>
+</div>
+</body>
+</html>
