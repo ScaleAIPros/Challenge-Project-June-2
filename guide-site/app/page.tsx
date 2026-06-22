@@ -100,7 +100,7 @@ export default function Home() {
               <a href="#key-points" style={{ background: "#00D4FF", color: "#0A0A0F", padding: "12px 24px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
                 Start the Guide ↓
               </a>
-              <a href="https://scaleaipros.com/" target="_blank" rel="noopener noreferrer" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "12px 24px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "14px" }}>
+              <a href="/cheat-sheet.html" target="_blank" rel="noopener noreferrer" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "12px 24px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "14px" }}>
                 Free Cheat Sheet
               </a>
             </div>
@@ -208,7 +208,7 @@ export default function Home() {
           Download the free HeyGen Quick-Start Cheat Sheet — one page, plain English, every step you need to make your first AI video today.
         </p>
         <a
-          href="https://scaleaipros.com/"
+          href="/cheat-sheet.html"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -223,7 +223,7 @@ export default function Home() {
             boxShadow: "0 0 30px rgba(0,212,255,0.4)",
           }}
         >
-          Get the Free Cheat Sheet → ScaleAIPros.com
+          Get the Free Cheat Sheet →
         </a>
       </section>
 
