@@ -120,9 +120,9 @@ export default function Home() {
             <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "10px", textAlign: "center" }}>Watch First — 3 min</div>
             <div style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "14px", overflow: "hidden", boxShadow: "0 0 40px rgba(0,212,255,0.12)" }}>
               <iframe
-                src="https://www.youtube.com/embed/ceazEpMPNcQ?rel=0&modestbranding=1"
+                src="https://app.heygen.com/embeds/64ce5512259e4098a93e4aa80ce7f27c"
                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "14px" }}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; fullscreen"
                 allowFullScreen
                 title="ScaleAIPros — How to Create AI Videos Without Being on Camera"
               />
