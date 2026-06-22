@@ -1,227 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>HeyGen Quick-Start Cheat Sheet — ScaleAIPros</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0A0A0F;
-    color: #F0F0F0;
-    font-family: 'Inter', sans-serif;
-    width: 1080px;
-    min-height: 1527px; /* A4 proportions at 96dpi */
-    padding: 60px;
-    position: relative;
-  }
-  .page {
-    width: 100%;
-    min-height: 1407px;
-    background: #12121A;
-    border: 1px solid #1E1E2E;
-    border-radius: 20px;
-    padding: 56px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .page::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .page::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 40px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #1E1E2E;
-  }
-  .brand {
-    font-family: 'JetBrains Mono', monospace;
-    color: #00D4FF;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  .tag {
-    background: rgba(0,212,255,0.1);
-    border: 1px solid rgba(0,212,255,0.3);
-    color: #00D4FF;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 20px;
-  }
-  h1 {
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 8px;
-  }
-  h1 span { color: #00D4FF; }
-  .subtitle {
-    color: #8888AA;
-    font-size: 14px;
-    margin-bottom: 36px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  .card {
-    background: #0A0A0F;
-    border: 1px solid #1E1E2E;
-    border-radius: 12px;
-    padding: 20px;
-  }
-  .card-num {
-    font-family: 'JetBrains Mono', monospace;
-    color: #00D4FF;
-    font-size: 11px;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .card-title {
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .card-body {
-    font-size: 11.5px;
-    color: #8888AA;
-    line-height: 1.6;
-  }
-  .card-tip {
-    margin-top: 8px;
-    padding: 8px 10px;
-    background: rgba(124,58,237,0.08);
-    border-left: 2px solid #7C3AED;
-    font-size: 10.5px;
-    color: #7C3AED;
-    border-radius: 0 4px 4px 0;
-    font-style: italic;
-  }
-  .full-card {
-    grid-column: 1 / -1;
-  }
-  .cta-bar {
-    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(124,58,237,0.08));
-    border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    margin-top: 8px;
-  }
-  .cta-bar h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
-  .cta-bar p { color: #8888AA; font-size: 12px; margin-bottom: 12px; }
-  .cta-url {
-    display: inline-block;
-    background: #00D4FF;
-    color: #0A0A0F;
-    font-weight: 800;
-    font-size: 13px;
-    padding: 8px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  footer {
-    margin-top: 32px;
-    padding-top: 20px;
-    border-top: 1px solid #1E1E2E;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    color: #555577;
-  }
-  footer .handle { color: #00D4FF; font-family: 'JetBrains Mono', monospace; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  background: #0A0A0F;
+  color: #F0F0F0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page {
+  width: 960px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.accent-bar {
+  height: 5px;
+  background: linear-gradient(90deg, #00D4FF, #7C3AED);
+}
+
+.doc-header {
+  padding: 22px 40px 18px;
+  border-bottom: 1px solid #1E1E2E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.doc-handle {
+  font-family: 'JetBrains Mono', monospace;
+  color: #00D4FF;
+  font-size: 13px;
+  font-weight: 600;
+}
+.doc-url { color: #8888AA; font-size: 13px; }
+
+.hero {
+  padding: 36px 40px 28px;
+  text-align: center;
+  border-bottom: 1px solid #1E1E2E;
+}
+.hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 10px; }
+.hero .sub { color: #8888AA; font-size: 14px; margin-bottom: 24px; }
+.best-first {
+  background: #00D4FF;
+  color: #0A0A0F;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+}
+
+.section { padding: 30px 40px 0; }
+.section-title {
+  color: #00D4FF;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+td { border: 1px solid #1E1E2E; padding: 12px 16px; vertical-align: top; }
+
+.num-cell {
+  background: #12121A;
+  color: #00D4FF;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  width: 52px;
+  text-align: center;
+  vertical-align: middle;
+}
+.content-cell { background: #12121A; }
+.content-cell strong { display: block; font-weight: 700; color: #F0F0F0; margin-bottom: 3px; }
+.content-cell span { color: #AAAACC; font-size: 13px; }
+
+.checklist-table td {
+  background: #12121A;
+  color: #CCCCDD;
+  font-size: 13px;
+  padding: 10px 16px;
+  width: 50%;
+}
+
+.prompt-box {
+  background: #12121A;
+  border: 1px solid #1E1E2E;
+  border-radius: 8px;
+  padding: 18px 20px;
+  color: #CCCCDD;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.page-break {
+  border: none;
+  border-top: 3px solid #1E1E2E;
+  margin: 40px 0 0;
+}
+
+.page2-header {
+  text-align: center;
+  padding: 36px 40px 28px;
+  border-bottom: 1px solid #1E1E2E;
+}
+.page2-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+.page2-header .sub { color: #8888AA; font-size: 14px; }
+
+.cta-bar {
+  background: #00D4FF;
+  color: #0A0A0F;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 18px 24px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 30px 40px 0;
+}
+.cta-bar a { color: #0A0A0F; }
+
+.doc-footer {
+  text-align: center;
+  padding: 18px 40px 0;
+  color: #555577;
+  font-size: 12px;
+}
+
+@media print {
+  .page-break { page-break-before: always; border: none; margin: 0; }
+  .page2-header { padding-top: 40px; }
+  .accent-bar + .page2-header { padding-top: 36px; }
+}
 </style>
 </head>
 <body>
 <div class="page">
-  <header>
-    <div>
-      <div class="brand">@ScaleAIPros</div>
-      <div style="color:#8888AA;font-size:11px;margin-top:2px;">scaleaipros.com</div>
-    </div>
-    <div class="tag">Free Cheat Sheet</div>
-  </header>
 
-  <h1>HeyGen Quick-Start<br /><span>Cheat Sheet</span></h1>
-  <p class="subtitle">Everything you need to make your first AI video — one page, plain English, no tech skills required.</p>
+  <!-- PAGE 1 -->
+  <div class="accent-bar"></div>
 
-  <div class="grid">
-    <div class="card">
-      <div class="card-num">01</div>
-      <div class="card-title">🎬 What HeyGen Does</div>
-      <div class="card-body">Type a video idea → get back a finished video with an AI presenter, script, captions, music, and timing. No camera. No editing. No studio.</div>
+  <div class="doc-header">
+    <span class="doc-handle">@ScaleAIPros</span>
+    <span class="doc-url">ScaleAIPros.com</span>
+  </div>
+
+  <div class="hero">
+    <h1>HeyGen Quick-Start Cheat Sheet</h1>
+    <p class="sub">How to create AI videos without being on camera — plus the 7 things every business owner needs to know.</p>
+    <span class="best-first">Best first video: "Who we help, what problem we solve, and how to get started."</span>
+  </div>
+
+  <!-- 7 THINGS -->
+  <div class="section">
+    <div class="section-title">The 7 Things You Need to Know</div>
+    <table>
+      <tr>
+        <td class="num-cell">01</td>
+        <td class="content-cell"><strong>HeyGen creates videos without filming</strong><span>Turn a text prompt into a polished video with an AI presenter, visuals, voice, captions, and timing.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">02</td>
+        <td class="content-cell"><strong>One prompt can build an entire video</strong><span>Be specific about audience, goal, tone, and length. The AI Agent builds the first draft.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">03</td>
+        <td class="content-cell"><strong>You stay in control</strong><span>Use AI Studio to edit scenes, rewrite scripts, adjust captions, change backgrounds, and match your brand.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">04</td>
+        <td class="content-cell"><strong>Clone yourself once</strong><span>Record a short sample, then let your digital twin read future scripts in your likeness and voice.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">05</td>
+        <td class="content-cell"><strong>One video can have many looks</strong><span>Repurpose one script across LinkedIn, Instagram, Facebook, and YouTube by changing visuals and style.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">06</td>
+        <td class="content-cell"><strong>Speak multiple languages</strong><span>Upload an English video, choose from 175+ languages, and let HeyGen redub it automatically.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">07</td>
+        <td class="content-cell"><strong>Go faceless with characters</strong><span>Use an animated AI character or branded spokesperson when you do not want to appear on camera.</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- STEP BY STEP -->
+  <div class="section">
+    <div class="section-title">Simple Step-by-Step Guide: Create Your First HeyGen Video</div>
+    <table>
+      <tr>
+        <td class="num-cell">1</td>
+        <td class="content-cell"><strong>Choose one clear goal</strong><span>Pick one outcome: explain a service, answer a common question, introduce your business, or follow up with leads.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">2</td>
+        <td class="content-cell"><strong>Write your prompt</strong><span>Use this formula: Audience + problem + solution + tone + length. Example: "Create a 60-second explainer for small business owners about reducing missed calls. Tone: warm and professional."</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">3</td>
+        <td class="content-cell"><strong>Generate the first draft</strong><span>Open HeyGen, start with the AI Agent, paste your prompt, and let it create the script, scenes, voice, captions, and visuals.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">4</td>
+        <td class="content-cell"><strong>Review the script first</strong><span>Make sure the message sounds like your business. Fix unclear lines, remove fluff, and add your call to action.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">5</td>
+        <td class="content-cell"><strong>Pick the presenter style</strong><span>Use your own avatar, a stock avatar, or a faceless animated character. Choose the option that fits your comfort level and brand.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">6</td>
+        <td class="content-cell"><strong>Customize the look</strong><span>Add your logo, brand colors, captions, background, and preferred visual style. Keep it clean and easy to read.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">7</td>
+        <td class="content-cell"><strong>Preview and polish</strong><span>Watch the full video. Check pronunciation, pacing, captions, transitions, and CTA. Make small edits before exporting.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">8</td>
+        <td class="content-cell"><strong>Publish and repurpose</strong><span>Export the video. Post it on one platform first, then create alternate versions for email, website, LinkedIn, Instagram, and YouTube.</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PAGE 2 -->
+  <hr class="page-break"/>
+  <div class="accent-bar"></div>
+
+  <div class="page2-header">
+    <h1>Prompt Template + Launch Checklist</h1>
+    <p class="sub">Copy, customize, generate, publish, and improve.</p>
+  </div>
+
+  <div class="section" style="padding-top:30px;">
+
+    <div class="section-title">Copy-Paste HeyGen Prompt Template</div>
+    <div class="prompt-box">
+      Create a [length] video for [audience] about [problem/topic]. The goal is to [desired outcome]. Use a [tone] tone. Include [business/service name], explain the main benefit in plain English, and end with this call to action: [CTA]. Visual style: [modern/professional/friendly/cinematic].
     </div>
-    <div class="card">
-      <div class="card-num">02</div>
-      <div class="card-title">🤖 AI Agent — Your Shortcut</div>
-      <div class="card-body">From the home screen, describe your video. The AI builds everything from one prompt. Be specific: mention tone, audience, and goal for better results.</div>
-      <div class="card-tip">Example: "60-second explainer for my bookkeeping service, warm and professional tone, targeting small business owners"</div>
+
+    <div class="section-title">Starter Prompt Example</div>
+    <div class="prompt-box">
+      Create a 60-second explainer video for local small business owners about how AI follow-up can reduce missed leads. Tone: friendly, professional, and plain English. Mention Scale AI Pros. Show a business owner saving time and responding faster. End with: Get your free Revenue Impact Results at ScaleAIPros.com.
     </div>
-    <div class="card">
-      <div class="card-num">03</div>
-      <div class="card-title">✏️ The Editor — Stay in Control</div>
-      <div class="card-body">Click any scene to rewrite it. Change captions style, generate AI backgrounds by description, set avatar energy level (calm / welcoming / excited).</div>
-      <div class="card-tip">⚠️ Avoid "expressive motion" — it makes avatars move erratically.</div>
-    </div>
-    <div class="card">
-      <div class="card-num">04</div>
-      <div class="card-title">🧬 Clone Yourself (15 sec)</div>
-      <div class="card-body">Avatar tab → New Avatar → Clone a real person. Record 15 sec via webcam or phone. Turn on: 4K, noise removal. Your AI twin is then ready for unlimited videos.</div>
-    </div>
-    <div class="card">
-      <div class="card-num">05</div>
-      <div class="card-title">🎨 Change Looks Instantly</div>
-      <div class="card-body">Edit in AI Studio → Avatar → New Look → Design with AI. Describe outfit + environment. Applies to every scene. Same script, brand new aesthetic.</div>
-    </div>
-    <div class="card">
-      <div class="card-num">06</div>
-      <div class="card-title">🌍 175+ Languages, Zero Re-recording</div>
-      <div class="card-body">Home → Translate → Browse local files → Choose language → Translate. Your avatar speaks the new language naturally. No translator needed.</div>
-    </div>
-    <div class="card full-card">
-      <div class="card-num">07</div>
-      <div class="card-title">✨ Go Faceless — Animated Characters</div>
-      <div class="card-body">Avatar tab → New Avatar → Create virtual character → Design with AI. Name it, set style (Pixar / realistic), describe its world. Add a voice from the library. Use it to build a faceless channel, educational mascot, or story-driven series — no camera ever needed.</div>
-    </div>
+
+    <div class="section-title">Quick-Start Checklist</div>
+    <table class="checklist-table" style="margin-bottom:28px;">
+      <tr>
+        <td>&#9744; Know the goal of the video before you generate it.</td>
+        <td>&#9744; Use brand colors, logo, and consistent fonts.</td>
+      </tr>
+      <tr>
+        <td>&#9744; Keep the video focused on one message.</td>
+        <td>&#9744; Preview the full video before exporting.</td>
+      </tr>
+      <tr>
+        <td>&#9744; Use plain English and avoid technical jargon.</td>
+        <td>&#9744; Repurpose one video into at least three formats.</td>
+      </tr>
+      <tr>
+        <td>&#9744; Include a clear call to action.</td>
+        <td>&#9744; Track views, clicks, replies, and consultation requests.</td>
+      </tr>
+      <tr>
+        <td>&#9744; Add captions for silent viewing.</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <div class="section-title">The 3 Big Takeaways</div>
+    <table style="margin-bottom:0;">
+      <tr>
+        <td class="num-cell">1</td>
+        <td class="content-cell"><strong>Video is no longer optional.</strong><span>It builds trust faster, but it no longer requires a studio or editing team.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">2</td>
+        <td class="content-cell"><strong>The biggest barrier is gone.</strong><span>You do not need to be on camera or know how to edit.</span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">3</td>
+        <td class="content-cell"><strong>Start now, not later.</strong><span>The businesses that win are the ones that test, publish, and improve before everyone else catches up.</span></td>
+      </tr>
+    </table>
+
   </div>
 
   <div class="cta-bar">
-    <h3>Ready to make your first AI video?</h3>
-    <p>Get the interactive guide with demos, deep dives, and the free AI Video Use Case Finder tool.</p>
-    <a href="https://scaleaipros.com/" class="cta-url">scaleaipros.com</a>
+    Next step: Create one simple video this week and use it on your website, email follow-up, and social media. | <a href="https://scaleaipros.com/">ScaleAIPros.com</a>
   </div>
 
-  <footer>
-    <span><span class="handle">@ScaleAIPros</span> — AI does not have to be complicated.</span>
-    <span>© 2026 ScaleAIPros · Free to share</span>
-  </footer>
+  <div class="doc-footer">AI does not have to be complicated.</div>
+
 </div>
 </body>
 </html>
