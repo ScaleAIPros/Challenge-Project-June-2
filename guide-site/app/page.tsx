@@ -81,7 +81,7 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "80px 24px 60px", textAlign: "center" }}>
+      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px 32px", textAlign: "center" }}>
         <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "12px", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>
           Free Interactive Guide
         </div>
@@ -109,6 +109,23 @@ export default function Home() {
               <div style={{ fontSize: "13px", color: "#8888AA" }}>{label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Explainer Video — directly below hero */}
+      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px 48px" }}>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "8px" }}>Watch First</div>
+          <p style={{ color: "#8888AA", fontSize: "14px" }}>A quick walkthrough of everything this guide covers — in under 3 minutes.</p>
+        </div>
+        <div id="explainer-video" style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "16px", overflow: "hidden", boxShadow: "0 0 40px rgba(0,212,255,0.1)" }}>
+          <iframe
+            src="https://app.heygen.com/embeds/64ce5512259e4098a93e4aa80ce7f27c"
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "16px" }}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            title="ScaleAIPros — How to Create AI Videos Without Being on Camera"
+          />
         </div>
       </section>
 
@@ -156,24 +173,6 @@ export default function Home() {
               )}
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Explainer Video */}
-      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
-        <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "12px" }}>Watch First</div>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, marginBottom: "12px" }}>See It in Action</h2>
-          <p style={{ color: "#8888AA", lineHeight: 1.7 }}>A quick walkthrough of everything this guide covers — in under 3 minutes.</p>
-        </div>
-        <div id="explainer-video" style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "16px", overflow: "hidden" }}>
-          <iframe
-            src="https://app.heygen.com/embeds/64ce5512259e4098a93e4aa80ce7f27c"
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "16px" }}
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            title="ScaleAIPros — How to Create AI Videos Without Being on Camera"
-          />
         </div>
       </section>
 
