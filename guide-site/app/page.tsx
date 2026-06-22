@@ -80,52 +80,55 @@ export default function Home() {
         </a>
       </nav>
 
-      {/* Hero */}
-      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px 32px", textAlign: "center" }}>
-        <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "12px", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>
-          Free Interactive Guide
-        </div>
-        <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, lineHeight: 1.15, margin: "0 0 24px" }}>
-          How to Create AI Videos<br />
-          <span style={{ color: "#00D4FF" }}>Without Being on Camera</span>
-        </h1>
-        <p style={{ fontSize: "1.15rem", color: "#8888AA", maxWidth: "560px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-          A plain-English walkthrough of HeyGen 2026 — the tool that lets any business owner create professional videos with zero filming, zero editing, and zero camera anxiety.
-        </p>
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="#key-points" style={{ background: "#00D4FF", color: "#0A0A0F", padding: "14px 28px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>
-            Start the Guide ↓
-          </a>
-          <a href="/cheat-sheet" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "14px 28px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "15px" }}>
-            Download Free Cheat Sheet
-          </a>
-        </div>
+      {/* Hero — two column: text left, video right */}
+      <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px 48px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "48px", flexWrap: "wrap" }}>
 
-        {/* Stats */}
-        <div style={{ display: "flex", gap: "40px", justifyContent: "center", marginTop: "60px", flexWrap: "wrap" }}>
-          {[["7", "Key Points"], ["175+", "Languages"], ["0", "Cameras Needed"]].map(([num, label]) => (
-            <div key={label} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "2rem", fontWeight: 800, color: "#00D4FF" }}>{num}</div>
-              <div style={{ fontSize: "13px", color: "#8888AA" }}>{label}</div>
+          {/* Left — text */}
+          <div style={{ flex: "1", minWidth: "280px" }}>
+            <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>
+              Free Interactive Guide
             </div>
-          ))}
-        </div>
-      </section>
+            <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 800, lineHeight: 1.15, margin: "0 0 20px" }}>
+              How to Create AI Videos<br />
+              <span style={{ color: "#00D4FF" }}>Without Being on Camera</span>
+            </h1>
+            <p style={{ fontSize: "1rem", color: "#8888AA", marginBottom: "28px", lineHeight: 1.7 }}>
+              A plain-English walkthrough of HeyGen 2026 — the tool that lets any business owner create professional videos with zero filming, zero editing, and zero camera anxiety.
+            </p>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <a href="#key-points" style={{ background: "#00D4FF", color: "#0A0A0F", padding: "12px 24px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
+                Start the Guide ↓
+              </a>
+              <a href="https://scaleaipros.com/" target="_blank" rel="noopener noreferrer" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "12px 24px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "14px" }}>
+                Free Cheat Sheet
+              </a>
+            </div>
+            {/* Stats */}
+            <div style={{ display: "flex", gap: "32px", marginTop: "36px", flexWrap: "wrap" }}>
+              {[["7", "Key Points"], ["175+", "Languages"], ["0", "Cameras Needed"]].map(([num, label]) => (
+                <div key={label}>
+                  <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "#00D4FF" }}>{num}</div>
+                  <div style={{ fontSize: "12px", color: "#8888AA" }}>{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      {/* Explainer Video — directly below hero */}
-      <section style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px 48px" }}>
-        <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "8px" }}>Watch First</div>
-          <p style={{ color: "#8888AA", fontSize: "14px" }}>A quick walkthrough of everything this guide covers — in under 3 minutes.</p>
-        </div>
-        <div id="explainer-video" style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "16px", overflow: "hidden", boxShadow: "0 0 40px rgba(0,212,255,0.1)" }}>
-          <iframe
-            src="https://app.heygen.com/embeds/64ce5512259e4098a93e4aa80ce7f27c"
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "16px" }}
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            title="ScaleAIPros — How to Create AI Videos Without Being on Camera"
-          />
+          {/* Right — video */}
+          <div style={{ flex: "1", minWidth: "300px" }}>
+            <div style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "10px", textAlign: "center" }}>Watch First — 3 min</div>
+            <div style={{ position: "relative", width: "100%", paddingBottom: "56.25%", background: "#12121A", border: "1px solid #1E1E2E", borderRadius: "14px", overflow: "hidden", boxShadow: "0 0 40px rgba(0,212,255,0.12)" }}>
+              <iframe
+                src="https://app.heygen.com/embeds/64ce5512259e4098a93e4aa80ce7f27c"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "14px" }}
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                title="ScaleAIPros — How to Create AI Videos Without Being on Camera"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
