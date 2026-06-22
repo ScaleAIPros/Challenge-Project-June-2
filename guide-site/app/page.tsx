@@ -97,9 +97,6 @@ export default function Home() {
               A plain-English walkthrough of HeyGen 2026 — the tool that lets any business owner create professional videos with zero filming, zero editing, and zero camera anxiety.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <a href="#key-points" style={{ background: "#00D4FF", color: "#0A0A0F", padding: "12px 24px", borderRadius: "8px", fontWeight: 700, textDecoration: "none", fontSize: "14px" }}>
-                Start the Guide ↓
-              </a>
               <a href="/cheat-sheet.html" target="_blank" rel="noopener noreferrer" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "12px 24px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "14px" }}>
                 Free Cheat Sheet
               </a>
@@ -129,53 +126,6 @@ export default function Home() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #1E1E2E, transparent)", margin: "0 24px" }} />
-
-      {/* Key Points */}
-      <section id="key-points" style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, marginBottom: "12px" }}>The 7 Things You Need to Know</h2>
-          <p style={{ color: "#8888AA" }}>Click any point to expand the full explanation</p>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          {keyPoints.map((point, i) => (
-            <div
-              key={i}
-              onClick={() => setOpenPoint(openPoint === i ? null : i)}
-              style={{
-                background: "#12121A",
-                border: `1px solid ${openPoint === i ? "#00D4FF" : "#1E1E2E"}`,
-                borderRadius: "12px",
-                overflow: "hidden",
-                cursor: "pointer",
-                transition: "border-color 0.2s",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "16px", padding: "20px 24px" }}>
-                <span style={{ fontFamily: "JetBrains Mono, monospace", color: "#00D4FF", fontSize: "12px", minWidth: "28px" }}>{point.number}</span>
-                <span style={{ fontSize: "1.4rem" }}>{point.icon}</span>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "2px" }}>{point.title}</div>
-                  <div style={{ color: "#8888AA", fontSize: "13px" }}>{point.subtitle}</div>
-                </div>
-                <span style={{ fontSize: "10px", fontFamily: "JetBrains Mono, monospace", background: "#1E1E2E", color: "#00D4FF", padding: "3px 8px", borderRadius: "4px", whiteSpace: "nowrap" }}>{point.label}</span>
-                <span style={{ color: "#8888AA", fontSize: "20px", marginLeft: "8px" }}>{openPoint === i ? "−" : "+"}</span>
-              </div>
-              {openPoint === i && (
-                <div style={{ padding: "0 24px 24px 72px", borderTop: "1px solid #1E1E2E" }}>
-                  <p style={{ color: "#CCCCDD", lineHeight: 1.75, marginTop: "20px", marginBottom: "16px" }}>{point.body}</p>
-                  <div style={{ background: "#0A0A0F", border: "1px solid #1E1E2E", borderLeft: "3px solid #7C3AED", padding: "12px 16px", borderRadius: "6px", fontSize: "13px", color: "#8888AA", fontStyle: "italic" }}>
-                    💡 {point.tip}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
         </div>
       </section>
 
