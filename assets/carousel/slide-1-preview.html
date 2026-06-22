@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Slide 1 Preview — With Headshot</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: Inter, sans-serif;
+  color: #fff;
+  gap: 20px;
+}
+
+.label { color: #8888AA; font-size: 13px; font-family: 'JetBrains Mono', monospace; }
+
+/* THE SLIDE */
+.slide {
+  width: 1080px;
+  height: 1350px;
+  background: linear-gradient(145deg, #0A0A0F 0%, #0C1520 50%, #0A0A0F 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+  transform: scale(0.45);
+  transform-origin: top center;
+  margin-bottom: -620px;
+}
+
+/* Background glows */
+.glow-tl {
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.glow-br {
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Top accent bar */
+.top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #00D4FF, #7C3AED);
+}
+
+/* Slide number + handle */
+.slide-meta {
+  position: absolute;
+  top: 50px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 70px;
+  align-items: center;
+}
+.slide-num {
+  font-family: 'JetBrains Mono', monospace;
+  color: #1E1E2E;
+  font-size: 22px;
+}
+.handle {
+  font-family: 'JetBrains Mono', monospace;
+  color: #00D4FF;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Headshot */
+.headshot-ring {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D4FF, #7C3AED);
+  padding: 5px;
+  margin-bottom: 50px;
+  box-shadow: 0 0 60px rgba(0,212,255,0.35), 0 0 120px rgba(0,212,255,0.1);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.headshot-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1E1E2E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headshot-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.headshot-placeholder {
+  font-size: 100px;
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+
+/* Text content */
+.content {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+.tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  color: #00D4FF;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,212,255,0.3);
+  background: rgba(0,212,255,0.05);
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+h1 {
+  font-size: 88px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 30px;
+  color: #F0F0F0;
+}
+h1 span { color: #00D4FF; }
+.subtitle {
+  font-size: 32px;
+  color: #8888AA;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Bottom bar */
+.bottom-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #7C3AED, #00D4FF);
+}
+
+/* Swipe hint */
+.swipe {
+  position: absolute;
+  bottom: 50px;
+  right: 70px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #333355;
+  font-size: 20px;
+}
+
+/* ---- INSTRUCTIONS BELOW SLIDE ---- */
+.instructions {
+  max-width: 490px;
+  background: #12121A;
+  border: 1px solid #1E1E2E;
+  border-radius: 12px;
+  padding: 24px;
+  font-size: 13px;
+  color: #8888AA;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+.instructions h3 { color: #00D4FF; font-size: 14px; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; }
+.instructions code { background: #0A0A0F; color: #00D4FF; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="label">↓ Instagram Carousel — Slide 1 of 6 (1080 × 1350px)</div>
+
+<div class="slide">
+  <div class="top-bar"></div>
+  <div class="glow-tl"></div>
+  <div class="glow-br"></div>
+
+  <div class="slide-meta">
+    <span class="slide-num">1 / 6</span>
+    <span class="handle">@ScaleAIPros</span>
+  </div>
+
+  <!-- Headshot — swap src to your image file path -->
+  <div class="headshot-ring">
+    <div class="headshot-inner">
+      <!-- Replace the emoji below with: <img src="headshot.jpg" alt="ScaleAIPros" /> -->
+      <span class="headshot-placeholder">👤</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="tag">AI Video · No Camera</div>
+    <h1>Make Videos<br/>Without<br/><span>Going Live</span></h1>
+    <p class="subtitle">7 things every business owner<br/>needs to know about HeyGen 2026</p>
+  </div>
+
+  <div class="swipe">swipe →</div>
+  <div class="bottom-bar"></div>
+</div>
+
+<div class="instructions">
+  <h3>To add your headshot:</h3>
+  Save your photo as <code>headshot.jpg</code> in the same folder as this file, then replace the 👤 line with:<br/><br/>
+  <code>&lt;img src="headshot.jpg" alt="ScaleAIPros" /&gt;</code><br/><br/>
+  The photo will fill the circle automatically, cropped to your face.
+</div>
+
+</body>
+</html>
