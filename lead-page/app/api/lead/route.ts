@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const TO_EMAIL = "info@ScaleAIPros.com";
-const CHEAT_SHEET_URL = "https://challenge-project-june-2-esfpz5syr-scale-aip.vercel.app/cheat-sheet.html";
+const CHEAT_SHEET_URL = "https://challenge-project-june-2.vercel.app/cheat-sheet.html";
 
 async function sendEmail(to: string, subject: string, html: string) {
   if (!RESEND_API_KEY) {
