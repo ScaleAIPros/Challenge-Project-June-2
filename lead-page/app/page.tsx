@@ -29,6 +29,9 @@ export default function LeadPage() {
       });
       if (!res.ok) throw new Error("Submit failed");
       setStatus("success");
+      setTimeout(() => {
+        window.open("https://challenge-project-june-2-esfpz5syr-scale-aip.vercel.app/cheat-sheet.html", "_blank");
+      }, 800);
     } catch {
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again or email info@ScaleAIPros.com");
