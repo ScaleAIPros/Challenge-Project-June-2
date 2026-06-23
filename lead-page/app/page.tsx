@@ -58,9 +58,9 @@ export default function LeadPage() {
         {status === "success" ? (
           <div style={{ ...cardStyle, borderColor: "#00D4FF", textAlign: "center" }}>
             <div style={{ fontSize: "3rem", marginBottom: "16px" }}>🎉</div>
-            <h2 style={{ color: "#00D4FF", marginBottom: "12px" }}>Check your inbox!</h2>
-            <p style={{ color: "#8888AA", lineHeight: 1.7 }}>The cheat sheet is heading to <strong style={{ color: "#F0F0F0" }}>{email}</strong>. Check spam if you do not see it in 2 minutes.</p>
-            <a href="https://scaleaipros.com/" style={{ display: "inline-block", marginTop: "24px", color: "#00D4FF", textDecoration: "none", fontSize: "14px" }}>Visit ScaleAIPros.com while you wait →</a>
+            <h2 style={{ color: "#00D4FF", marginBottom: "12px" }}>You're in!</h2>
+            <p style={{ color: "#8888AA", lineHeight: 1.7, marginBottom: "24px" }}>A copy is also on its way to <strong style={{ color: "#F0F0F0" }}>{email}</strong>. Check spam if you don't see it in 2 minutes.</p>
+            <a href="https://challenge-project-june-2-vlp9.vercel.app/cheat-sheet.html" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#00D4FF", color: "#0A0A0F", padding: "14px 28px", borderRadius: "8px", fontWeight: 800, fontSize: "15px", textDecoration: "none", boxShadow: "0 0 24px rgba(0,212,255,0.4)" }}>Open Your Cheat Sheet →</a>
           </div>
         ) : (
           <div style={cardStyle}>
