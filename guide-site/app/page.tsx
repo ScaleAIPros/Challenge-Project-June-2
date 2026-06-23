@@ -97,7 +97,7 @@ export default function Home() {
               A plain-English walkthrough of HeyGen 2026 — the tool that lets any business owner create professional videos with zero filming, zero editing, and zero camera anxiety.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <a href="https://challenge-project-june-2-esfpz5syr-scale-aip.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "12px 24px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "14px" }}>
+              <a href="/cheat-sheet.html" target="_blank" rel="noopener noreferrer" style={{ border: "1px solid #7C3AED", color: "#7C3AED", padding: "12px 24px", borderRadius: "8px", fontWeight: 600, textDecoration: "none", fontSize: "14px" }}>
                 Free Cheat Sheet
               </a>
             </div>
