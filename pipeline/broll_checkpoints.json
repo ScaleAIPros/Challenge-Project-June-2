@@ -1,0 +1,62 @@
+{
+  "_comment": "B-roll checkpoint definitions. Each checkpoint marks where b-roll replaces or overlays the avatar video. Edit prompts and timings here before running the pipeline.",
+  "checkpoints": [
+    {
+      "id": "cp_01",
+      "label": "HeyGen platform intro",
+      "start_sec": 30,
+      "end_sec": 50,
+      "duration_sec": 20,
+      "mode": "overlay",
+      "_comment_mode": "overlay = b-roll plays over avatar audio | replace = avatar hidden, b-roll full-frame",
+      "seedance_prompt": "Person typing on a laptop, a polished AI video appears on the screen, modern home office, cinematic lighting, dark background",
+      "seedance_style": "cinematic",
+      "approved": false,
+      "_comment_approved": "Set to true after reviewing the generated b-roll clip before final render"
+    },
+    {
+      "id": "cp_02",
+      "label": "AI Agent one-prompt demo",
+      "start_sec": 50,
+      "end_sec": 70,
+      "duration_sec": 20,
+      "mode": "overlay",
+      "seedance_prompt": "Close-up of a prompt box being typed on a screen, a video instantly generates and plays back, clean UI, fast motion",
+      "seedance_style": "cinematic",
+      "approved": false
+    },
+    {
+      "id": "cp_03",
+      "label": "Clone yourself moment",
+      "start_sec": 70,
+      "end_sec": 90,
+      "duration_sec": 20,
+      "mode": "overlay",
+      "seedance_prompt": "Person sitting at a webcam recording themselves, a digital twin avatar appears beside them on a split screen, futuristic glow effect, dark background",
+      "seedance_style": "cinematic",
+      "approved": false
+    },
+    {
+      "id": "cp_04",
+      "label": "Go global translation",
+      "start_sec": 90,
+      "end_sec": 110,
+      "duration_sec": 20,
+      "mode": "overlay",
+      "seedance_prompt": "World map with language flags lighting up across continents, a video waveform plays in multiple languages, blue and purple glow",
+      "seedance_style": "cinematic",
+      "approved": false
+    },
+    {
+      "id": "cp_05",
+      "label": "Faceless animated character",
+      "start_sec": 110,
+      "end_sec": 120,
+      "duration_sec": 10,
+      "mode": "overlay",
+      "seedance_prompt": "Animated AI cartoon character presenting on screen, bold colors, stylized motion, dark background, modern 2D animation look",
+      "seedance_style": "animated",
+      "approved": false
+    }
+  ]
+}
